@@ -1,0 +1,54 @@
+{
+  "name": "luogu-tester",
+  "displayName": "luogu-tester",
+  "description": "Perfectly receive the test cases of Luogu problems crawled by Competitive Companion and evaluate them.",
+  "version": "1.0.0",
+  "publisher": "lijingshu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lijingshu2014/luogu-tester.git"
+  },
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["workspaceContains:**/*.cpp"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "luogu-tester.evaluate",
+        "title": "洛谷评测: 运行当前代码评测"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "luogu-tester.evaluate",
+        "key": "ctrl+b",
+        "mac": "cmd+b",
+        "when": "editorTextFocus && resourceExtname == '.cpp'"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.105.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "eslint": "^9.36.0",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
