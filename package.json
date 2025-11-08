@@ -2,7 +2,7 @@
   "name": "luogu-tester",
   "displayName": "luogu-tester",
   "description": "Perfectly receive the test cases of Luogu problems crawled by Competitive Companion and evaluate them.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "lijingshu",
   "repository": {
     "type": "git",
