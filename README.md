@@ -6,7 +6,7 @@
 
 - 支持 C++ 语言（编译选项：`-std=c++14 -O2`）。
 - 完整的评测结果分类：
-  - ✅ AC (Accepted)：答案正确
+  - ✅ AC (Accepted)：答案正确。
   - ❌ CE (Compilation Error)：编译错误（显示详细错误信息）。
   - ⏱️ TLE (Time Limit Exceeded)：时间超限（默认10秒）。
   - 💥 RE (Runtime Error)：运行时错误（显示信号类型或退出码）。
