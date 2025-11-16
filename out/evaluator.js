@@ -57,7 +57,16 @@ class CodeEvaluator {
             return;
         }
         const filePath = document.uri.fsPath;
-        const exePath = path.join(workspaceFolder.uri.fsPath, 'a.out');
+        const codeDir = path.dirname(filePath);
+        const codeFileName = path.basename(filePath, path.extname(filePath));
+        let exeName;
+        if (process.platform === 'win32') {
+            exeName = `${codeFileName}.exe`;
+        }
+        else {
+            exeName = codeFileName;
+        }
+        const exePath = path.join(codeDir, exeName);
         let compileSuccess = false;
         try {
             child_process.execSync(`g++ ${filePath} -std=c++14 -O2 -o ${exePath}`, {
@@ -224,7 +233,7 @@ class CodeEvaluator {
                 }
                 catch (retryErr) {
                     console.error(`Failed to clean up executable: ${retryErr}`);
-                    vscode_1.window.showWarningMessage('Failed to auto-clean executable file (a.out). ' +
+                    vscode_1.window.showWarningMessage(`Failed to auto-clean executable file (${path.basename(exePath)}). ` +
                         'It may be occupied, please close any related processes and delete it manually.');
                 }
             }, 1000);

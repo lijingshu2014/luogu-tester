@@ -26,7 +26,15 @@ export class CodeEvaluator {
     }
 
     const filePath = document.uri.fsPath;
-    const exePath = path.join(workspaceFolder.uri.fsPath, 'a.out');
+    const codeDir = path.dirname(filePath);
+    const codeFileName = path.basename(filePath, path.extname(filePath));
+    let exeName: string;
+    if (process.platform === 'win32') {
+      exeName = `${codeFileName}.exe`;
+    } else {
+      exeName = codeFileName;
+    }
+    const exePath = path.join(codeDir, exeName);
     let compileSuccess = false;
 
     try {
@@ -197,7 +205,7 @@ export class CodeEvaluator {
         } catch (retryErr) {
           console.error(`Failed to clean up executable: ${retryErr}`);
           window.showWarningMessage(
-            'Failed to auto-clean executable file (a.out). ' +
+            `Failed to auto-clean executable file (${path.basename(exePath)}). ` +
             'It may be occupied, please close any related processes and delete it manually.'
           );
         }
