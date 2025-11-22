@@ -5,12 +5,14 @@
 ## 特性
 
 - 支持 C++ 语言（编译选项：`-std=c++14 -O2`）。
+- 动态时间限制：评测时自动使用 Competitive Companion 爬取的题目时间限制。
+- 按题号分离样例：测试用例将按题号存储在独立的文件夹中（`testcases/{题号}/`）。
 - 完整的评测结果分类：
-  - ✅ AC (Accepted)：答案正确。
-  - ❌ CE (Compilation Error)：编译错误（显示详细错误信息）。
-  - ⏱️ TLE (Time Limit Exceeded)：时间超限（默认10秒）。
-  - 💥 RE (Runtime Error)：运行时错误（显示信号类型或退出码）。
-  - ❌ WA (Wrong Answer)：答案错误（对比期望/实际输出）。
+  - ✅ AC (Accepted)：答案正确（显示执行时间）。
+  - ❌ CE (Compilation Error)：编译错误（显示详细错误信息）。
+  - ⏱️ TLE (Time Limit Exceeded)：时间超限（显示实际限制和耗时）。
+  - 💥 RE (Runtime Error)：运行时错误（显示信号类型或退出码）。
+  - ❌ WA (Wrong Answer)：答案错误（对比期望/实际输出）。
 - 自动清理编译生成的可执行文件。
 - 输出对比忽略行尾空格和空行差异，减少误判。
 
@@ -18,9 +20,9 @@
 
 1. 安装 Competitive Companion 浏览器插件（[Chrome 或 Edge](https://chromewebstore.google.com/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)，[Firefox](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)，假如说你不是一位魔法师，而且你要用 Chrome 或 Edge，那么你可以离线安装，<https://www.chajianxw.com/developer/21930.html>）。
 2. 将 Competitive Companion 的端口设置为 `27121`。
-3. 在 VS Code 中打开一个文件夹，并创建/打开 .cpp 文件，插件会自动激活（提示：洛谷评测助手已激活）。
+3. 在 VS Code 中打开一个文件夹，插件会自动激活（提示：洛谷评测助手已激活）。
 4. 在浏览器中打开洛谷题目页面，点击 Competitive Companion 插件按钮发送样例。
-5. VS Code 会提示 "Received {题目名称} with {样例数量} test cases"。
+5. VS Code 会提示 "Received {题目名称} with {样例数量} test cases"，并自动在工作区创建 `{题号}.cpp` 文件。
 6. 在 .cpp 文件编辑界面按下快捷键 `Ctrl+B`（Windows/Linux）或 `Cmd+B`（Mac）开始评测。
 7. 查看右下角弹出的评测结果通知。
 
@@ -28,4 +30,4 @@
 
 1. 每切换一道题目需重新点击 Competitive Companion 插件按钮，否则将使用上一道题目的样例。
 2. 必须将 Competitive Companion 的端口设置为 `27121`（插件固定监听此端口）。
-3. 默认超时时间：10秒（当前版本不支持自定义）。
+3. **时间限制**：将使用 Competitive Companion 爬取到的时间限制（默认为 10 秒）。
