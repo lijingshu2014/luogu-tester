@@ -8,11 +8,11 @@
 - 动态时间限制：评测时自动使用 Competitive Companion 爬取的题目时间限制。
 - 按题号分离样例：测试用例将按题号存储在独立的文件夹中（`testcases/{题号}/`）。
 - 完整的评测结果分类：
-  - ✅ AC (Accepted)：答案正确（显示执行时间）。
-  - ❌ CE (Compilation Error)：编译错误（显示详细错误信息）。
-  - ⏱️ TLE (Time Limit Exceeded)：时间超限（显示实际限制和耗时）。
-  - 💥 RE (Runtime Error)：运行时错误（显示信号类型或退出码）。
-  - ❌ WA (Wrong Answer)：答案错误（对比期望/实际输出）。
+  - ✅ AC (Accepted)：答案正确（显示执行时间）。
+  - ❌ CE (Compilation Error)：编译错误（显示详细错误信息）。
+  - ⏱️ TLE (Time Limit Exceeded)：时间超限（显示实际限制和耗时）。
+  - 💥 RE (Runtime Error)：运行时错误（显示信号类型或退出码）。
+  - ❌ WA (Wrong Answer)：答案错误（对比期望/实际输出）。
 - 自动清理编译生成的可执行文件。
 - 输出对比忽略行尾空格和空行差异，减少误判。
 
